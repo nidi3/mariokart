@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.mimacom.maven.parent</groupId>
+		<artifactId>mimacom-closed-parent</artifactId>
+		<version>1.0.2</version>
+	</parent>
+	<groupId>org.mimacom.fun.mariokart</groupId>
+	<artifactId>mariokart-parent</artifactId>
+	<version>1.0.5-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<svn>http://repo.mimacom.ch/svn/codezoo</svn>
+	</properties>
+
+	<modules>
+		<module>mariokart-common</module>
+		<module>mariokart-client</module>
+		<module>mariokart-server</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.mimacom.fun.mariokart</groupId>
+				<artifactId>mariokart-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

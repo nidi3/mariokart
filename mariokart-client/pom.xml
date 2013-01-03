@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.mimacom.fun.mariokart</groupId>
+		<artifactId>mariokart-parent</artifactId>
+		<version>1.0.5-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>mariokart-client</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.mimacom.fun.mariokart</groupId>
+			<artifactId>mariokart-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.kupal</groupId>
+			<artifactId>skypeCommand</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.skype</groupId>
+			<artifactId>skype-lib</artifactId>
+			<version>1.0</version>
+		</dependency>
+        <dependency>
+            <groupId>org.tritonus</groupId>
+            <artifactId>tritonus-share</artifactId>
+            <version>0.3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tritonus</groupId>
+            <artifactId>tritonus-remaining</artifactId>
+            <version>0.3.6</version>
+        </dependency>
+
+    </dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.outputDirectory}</outputDirectory>
+							<includeScope>compile</includeScope>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>org.mimacom.fun.mariokart.Starter</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
